@@ -7,5 +7,6 @@ namespace InventoryManagement.Models.People
 {
     public class PersonModel
     {
+        public Guid Identifier { get; set; } = Guid.NewGuid();
     }
 }
