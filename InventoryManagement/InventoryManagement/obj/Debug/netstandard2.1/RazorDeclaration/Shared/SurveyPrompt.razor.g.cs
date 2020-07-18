@@ -76,6 +76,13 @@ using InventoryManagement.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\InventoryManagement\_Imports.razor"
+using InventoryManagement.Components.Games;
+
+#line default
+#line hidden
+#nullable disable
     public partial class SurveyPrompt : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
