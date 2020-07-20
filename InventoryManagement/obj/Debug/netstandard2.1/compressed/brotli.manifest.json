@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\MGsPNDAojpHpr79FXyrp-AfbZCLFBtV2u_lq4HK7ibg=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ROskRkar19bz3H45Yqvy31IgCmmfc2NgvUOQd3847BM=.hash",
       "Source": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\InventoryManagement.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/InventoryManagement.dll.br"
     },
@@ -261,7 +261,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\RwPzpdFBLIn4p6W_xyjP_9ut93PZQazPGs4v9m9_paM=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\GfZL5Dt_8-vW0wViPffblyMz9m7F-mPwqU0DplGBjno=.hash",
       "Source": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\InventoryManagement.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/InventoryManagement.pdb.br"
     },
@@ -286,7 +286,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\1IDecgz0H7DTIMiI-E6UvZZZfkTALBg_I34KOBBhKp8=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\TR0LNGbOGZL1ltykFsGxDLCoPvslSqguksH4pQOV320=.hash",
       "Source": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     }
