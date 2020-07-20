@@ -1,27 +1,42 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="main">
-    <div>
-        <MatAppBarContainer>
-            <MatAppBar Fixed="true">
-                <MatAppBarRow>
-                    <MatAppBarSection>
-                        <MatIconButton Icon="menu"></MatIconButton>
-                        <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
-                    </MatAppBarSection>
-                    <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-                        <MatIconButton Icon="favorite"></MatIconButton>
-                    </MatAppBarSection>
-                </MatAppBarRow>
-            </MatAppBar>
+    <MatThemeProvider Theme="@theme1">
+        <div class="main">
+            <MatAppBarContainer>
+                <MatAppBar Fixed="false">
+                    <MatAppBarRow>
+                        <MatAppBarSection>
+                            <MatIconButton Icon="menu" OnClick="@((e) => ButtonClicked())"></MatIconButton>
+                            <MatAppBarTitle>MatBlazor - Material Design components for Blazor</MatAppBarTitle>
+                        </MatAppBarSection>
+                    </MatAppBarRow>
+                </MatAppBar>
+            </MatAppBarContainer>
+            <MatDrawerContainer Class="drawer">
+                <MatDrawer  @bind-Opened="@_opened">
+                    <NavMenu OnNavClicked="@ButtonClicked"></NavMenu>
+                </MatDrawer>
+                <div class="content px-4">
+                    @Body
+                </div>
+            </MatDrawerContainer>
+        </div>
+    </MatThemeProvider>
 
-            <MatAppBarContent>
-                Content
-            </MatAppBarContent>
-        </MatAppBarContainer>
-    </div>
+@code
+{
 
-    <div class="content px-4">
-        @Body
-    </div>
-</div>
+    private bool _opened = false;
+    MatTheme theme1 = new MatTheme()
+    {
+        Primary = MatThemeColors.Blue._900.Value,
+        Secondary = MatThemeColors.Grey._200.Value
+    };
+    private void ButtonClicked()
+    {
+        _opened = !_opened;
+    }
+
+}
+
+
