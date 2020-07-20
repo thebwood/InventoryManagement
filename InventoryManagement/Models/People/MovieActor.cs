@@ -8,7 +8,7 @@ namespace InventoryManagement.Models.People
 {
     public class MovieActor
     {
-        public MovieModel Movie { get; set; }
+        public MoviesModel Movie { get; set; }
         public ActorModel Actor { get; set; }
     }
 }

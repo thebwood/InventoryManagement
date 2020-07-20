@@ -1,6 +1,21 @@
 ﻿@inherits ComponentBase
 
 
-<div>
-
-</div>
+    <div>
+        <MatTable Items="people"
+                  class="mat-elevation-z5"
+                  OnRowDbClick="OnPersonDbClicked"
+                  AllowSelection="true">
+            <MatTableHeader>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </MatTableHeader>
+            <MatTableRow>
+                <td>@context.Id</td>
+                <td>@context.Firstname</td>
+                <td>@context.Lastname</td>
+            </MatTableRow>
+        </MatTable>
+        <p>You have double clicked on <b>@_currentSelectedPerson</b></p>
+    </div>

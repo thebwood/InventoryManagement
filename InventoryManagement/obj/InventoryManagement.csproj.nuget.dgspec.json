@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj": {}
+    "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj": {}
   },
   "projects": {
-    "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj": {
+    "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
+        "projectUniqueName": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
         "projectName": "InventoryManagement",
-        "projectPath": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
+        "projectPath": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
         "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\InventoryManagement\\obj\\",
+        "outputPath": "D:\\Development\\GitHub\\Blazor Apps\\InventoryManagement\\InventoryManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -42,6 +42,10 @@
       "frameworks": {
         "netstandard2.1": {
           "dependencies": {
+            "MatBlazor": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[3.2.1, )"
@@ -58,7 +62,7 @@
             },
             "System.Net.Http.Json": {
               "target": "Package",
-              "version": "[3.2.0, )"
+              "version": "[3.2.1, )"
             }
           },
           "imports": [
