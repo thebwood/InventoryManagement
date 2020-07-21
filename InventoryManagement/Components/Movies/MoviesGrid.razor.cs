@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InventoryManagement.Services
+namespace InventoryManagement.Components.Movies
 {
-    public class MoviesService
+    public partial class MoviesGrid : ComponentBase
     {
     }
 }
