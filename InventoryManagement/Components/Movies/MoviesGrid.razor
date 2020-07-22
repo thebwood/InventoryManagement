@@ -1,5 +1,21 @@
-﻿<h3>MoviesGrid</h3>
+﻿@inherits ComponentBase
 
-@code {
 
-}
+<div>
+    <MatTable Items="Models"
+              class="mat-elevation-z5"
+              AllowSelection="true">
+        <MatTableHeader>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Hrs</th>
+            <th>Min</th>
+        </MatTableHeader>
+        <MatTableRow>
+            <td>@context.Title</td>
+            <td>@context.Description</td>
+            <td>@context.Hours</td>
+            <td>@context.Minutes</td>
+        </MatTableRow>
+    </MatTable>
+</div>

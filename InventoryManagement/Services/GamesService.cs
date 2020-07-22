@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Services
 {
-    public class GamesService
+    public class GamesService : BaseService
     {
     }
 }

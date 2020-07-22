@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Services
 {
-    public class RefDataService : BaseService
+    public class BaseService
     {
     }
 }

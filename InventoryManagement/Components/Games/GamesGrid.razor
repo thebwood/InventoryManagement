@@ -2,9 +2,8 @@
 
 
     <div>
-        <MatTable Items="people"
+        <MatTable Items="Models"
                   class="mat-elevation-z5"
-                  OnRowDbClick="OnPersonDbClicked"
                   AllowSelection="true">
             <MatTableHeader>
                 <th>Id</th>
@@ -12,10 +11,8 @@
                 <th>Lastname</th>
             </MatTableHeader>
             <MatTableRow>
-                <td>@context.Id</td>
-                <td>@context.Firstname</td>
-                <td>@context.Lastname</td>
+                <td>@context.Name</td>
+                <td>@context.ReleaseDate</td>
             </MatTableRow>
         </MatTable>
-        <p>You have double clicked on <b>@_currentSelectedPerson</b></p>
     </div>

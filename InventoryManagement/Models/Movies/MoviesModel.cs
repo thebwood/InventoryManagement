@@ -9,9 +9,12 @@ namespace InventoryManagement.Models.Movies
     {
         public long Id { get; set; }
         public Guid Identifier { get; set; } = Guid.NewGuid();
-        public string Name { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
-        public int ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
+        public int MovieRatingId { get; set; }
+        public int? Hours { get; set; }
+        public int? Minutes { get; set; }
         public MovieRatingsModel Rating { get; set; }
     }
 }
