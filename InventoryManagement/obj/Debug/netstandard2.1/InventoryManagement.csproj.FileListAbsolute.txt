@@ -386,9 +386,9 @@ D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\De
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\compressed\_framework\_bin\Newtonsoft.Json.dll.br
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\bin\Debug\netstandard2.1\wwwroot\_framework\_bin\System.Net.Http.Json.dll
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\bin\Debug\netstandard2.1\wwwroot\_framework\_bin\System.Net.Http.Json.dll.gz
-D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\pIgsbcsgqA47apZGl_ZG-KuX3YOPryK2V3e8IT1sNls=.hash
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\WkuXkEV--B1J2kYqjuSPxgHubOHALmA548PhKTed2JE=.hash
-D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\bEAooUGC4PBLHse3dGtJqceN_W9oouf5mMgFd4v9udU=.hash
-D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\re8bKJ1fxhnA6WEzGGhyDMjn0-Z9SzLEXJHTOvDMOrM=.hash
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\compressed\_framework\_bin\System.Net.Http.Json.dll.gz
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\compressed\_framework\_bin\System.Net.Http.Json.dll.br
+D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\_9LjOY4earm5Hk4581UO2QxGFBkDGitoz9juZDczcIE=.hash
+D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\MftlhYNFOzIReTLY4IrA4R1JxFtwCIY4jDAJexNNzno=.hash
+D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\OCCQJzS4mE3cK8SgE64HI6-XrO5zhZVUFpjhxi3UCtQ=.hash

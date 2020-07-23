@@ -12,8 +12,10 @@ namespace InventoryManagement.Pages.Movies
     public partial class Movie : ComponentBase
     {
         #region Dependency Injection
-        public MoviesService _service = new MoviesService();
-
+        [Inject]
+        private MoviesService _service { get; set; }
+        [Inject]
+        private NavigationManager _navigationManager { get; set; }
         #endregion
 
         #region Private Variables
@@ -39,9 +41,14 @@ namespace InventoryManagement.Pages.Movies
 
         #region Events
 
-        private void SaveMovie()
+        private async Task SaveMovieAsync()
         {
-            var messages = _service.SaveMovie(_movie);
+
+            var messages = await _service.SaveMovie(_movie);
+            if(messages.Count() == 0)
+            {
+                _navigationManager.NavigateTo("movies");
+            }
         }
         #endregion
     }

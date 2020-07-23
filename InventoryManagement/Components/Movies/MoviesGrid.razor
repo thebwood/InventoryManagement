@@ -2,16 +2,16 @@
 
 
 <div>
-    <MatTable Items="Models"
-              class="mat-elevation-z5"
-              AllowSelection="true">
+    <MatTable Items="Models" UseSortHeaderRow="true">
         <MatTableHeader>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Hrs</th>
-            <th>Min</th>
+            <th class="editButton">Edit</th>
+            <th class="movieTitle">Title</th>
+            <th class="movieDescription">Description</th>
+            <th class="movieHrs">Hrs</th>
+            <th class="movieMin">Min</th>
         </MatTableHeader>
         <MatTableRow>
+            <td><MatButton OnClick="() => EditMovie(context.Id)">Edit</MatButton></td>
             <td>@context.Title</td>
             <td>@context.Description</td>
             <td>@context.Hours</td>
@@ -19,3 +19,21 @@
         </MatTableRow>
     </MatTable>
 </div>
+
+<style>
+    .editButton{
+        width: 5%;
+    }
+    .movieTitle {
+        width: 20%;
+    }
+    .movieDescription {
+        width: 65%;
+    }
+    .movieHrs {
+        width: 5%;
+    }
+    .movieMin {
+        width: 5%;
+    }
+</style>

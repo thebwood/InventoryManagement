@@ -9,10 +9,19 @@ namespace InventoryManagement.Components.Movies
 {
     public partial class MoviesGrid : ComponentBase
     {
+        [Inject]
+        private NavigationManager _navigationManager { get; set; }
         #region Parameters
 
         [Parameter]
         public List<MoviesModel> Models { get; set; }
         #endregion
+
+
+        public void EditMovie(long movieId)
+        {
+            _navigationManager.NavigateTo("movies/" + movieId.ToString());
+
+        }
     }
 }
