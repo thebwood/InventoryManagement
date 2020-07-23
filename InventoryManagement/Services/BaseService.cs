@@ -21,7 +21,7 @@ namespace InventoryManagement.Services
 
                 var response = await httpClient.GetAsync(apiCall);
 
-                response.EnsureSuccessStatusCode();
+                //response.EnsureSuccessStatusCode();
 
                 return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
             }

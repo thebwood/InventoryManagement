@@ -22,6 +22,8 @@ namespace InventoryManagement.Services
         public async Task<MoviesModel> GetMovie(int movieId)
         {
             //var baseURL = Environment.GetEnvironmentVariable("MovieAPI");
+            Console.WriteLine("Service MovieId");
+            Console.WriteLine(movieId);
 
             var baseURL = "https://localhost:44349/";
             return await this.GetAPIResult<MoviesModel>(baseURL, "api/movies/" + movieId.ToString());

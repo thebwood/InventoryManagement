@@ -17,25 +17,24 @@ namespace InventoryManagement.Pages.Movies
         #endregion
 
         #region Private Variables
-        private MoviesModel _movie;
+        private MoviesModel _movie = new MoviesModel();
         #endregion
 
         #region Parameters
         [Parameter]
-        public int movieId { get; set; }
+        public int MovieId { get; set; }
 
         #endregion
 
         #region Blazor Events
 
+
         protected override async Task OnInitializedAsync()
         {
-            _movie = await _service.GetMovie(movieId);
-            if (_movie == null)
-                _movie = new MoviesModel();
-
+            Console.WriteLine("MovieId");
+            Console.WriteLine(MovieId);
+            _movie = await _service.GetMovie(MovieId);
         }
-
 
         #endregion
 
