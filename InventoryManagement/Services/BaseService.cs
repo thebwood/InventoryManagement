@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace InventoryManagement.Services
@@ -26,6 +28,20 @@ namespace InventoryManagement.Services
                 return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
             }
         }
+
+        public async Task<List<string>> PostAPIResult<T>(string baseURL, string apiCall, T model)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(baseURL);
+                httpClient.DefaultRequestHeaders.Clear();
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var response = await httpClient.PostAsJsonAsync(apiCall, model);
+
+                return JsonConvert.DeserializeObject<List<string>>(response.Content.ReadAsStringAsync().Result);
+            }
+        }
+
 
     }
 }

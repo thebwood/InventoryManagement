@@ -28,7 +28,6 @@ namespace InventoryManagement.Pages.Movies
 
         #region Blazor Events
 
-
         protected override async Task OnInitializedAsync()
         {
             Console.WriteLine("MovieId");
@@ -38,5 +37,12 @@ namespace InventoryManagement.Pages.Movies
 
         #endregion
 
+        #region Events
+
+        private void SaveMovie()
+        {
+            var messages = _service.SaveMovie(_movie);
+        }
+        #endregion
     }
 }
