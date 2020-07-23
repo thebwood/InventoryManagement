@@ -26,6 +26,8 @@ namespace InventoryManagement.Pages.Movies
         protected override async Task OnInitializedAsync()
         {
             _movies = await _service.GetMovies();
+            if (_movies == null)
+                _movies = new List<MoviesModel>();
         }
 
 

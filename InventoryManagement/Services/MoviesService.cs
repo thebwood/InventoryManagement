@@ -11,11 +11,24 @@ namespace InventoryManagement.Services
 {
     public class MoviesService : BaseService
     {
-        HttpClient Http = new HttpClient();
-
-        public Task<List<MoviesModel>> GetMovies()
+        public async Task<List<MoviesModel>> GetMovies()
         {
-            return Http.GetFromJsonAsync<List<MoviesModel>>("api/movies");
+            //var baseURL = Environment.GetEnvironmentVariable("MovieAPI");
+
+            var baseURL = "https://localhost:44349/";
+            return await this.GetAPIResult<List<MoviesModel>>(baseURL, "api/movies");
         }
+
+        public async Task<MoviesModel> GetMovie(int movieId)
+        {
+            //var baseURL = Environment.GetEnvironmentVariable("MovieAPI");
+
+            var baseURL = "https://localhost:44349/";
+            return await this.GetAPIResult<MoviesModel>(baseURL, "api/movies/" + movieId.ToString());
+        }
+
+
+
+
     }
 }

@@ -1,5 +1,28 @@
-﻿<h3>Movie</h3>
+﻿@page "/movie/{movieId:int}"
+@using InventoryManagement.Components.Movies
 
-@code {
 
-}
+<div class="row">
+    <div class="col-2 text-right">
+        <MatTabLabel>Movie Title:</MatTabLabel>
+    </div>
+    <div class="col-4">
+        <MatTextField @bind-Value="_movie.Title"></MatTextField>
+    </div>
+
+    <div class="col-2 text-right">
+        <MatTabLabel>Release Date:</MatTabLabel>
+    </div>
+    <div class="col-4">
+        <MatDatePicker @bind-Value="_movie.ReleaseDate"></MatDatePicker>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2 text-right">
+        <MatTabLabel>Description:</MatTabLabel>
+    </div>
+    <div class="col-10">
+        <MatTextField TextArea="true" @bind-Value="_movie.Description"></MatTextField>
+    </div>
+</div>

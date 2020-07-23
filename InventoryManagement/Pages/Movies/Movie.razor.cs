@@ -12,7 +12,7 @@ namespace InventoryManagement.Pages.Movies
     public partial class Movie : ComponentBase
     {
         #region Dependency Injection
-        public MoviesService _service;
+        public MoviesService _service = new MoviesService();
 
         #endregion
 
@@ -20,13 +20,20 @@ namespace InventoryManagement.Pages.Movies
         private MoviesModel _movie;
         #endregion
 
+        #region Parameters
+        [Parameter]
+        public int movieId { get; set; }
 
+        #endregion
 
         #region Blazor Events
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            //_movies = await _service.GetMovies();
+            _movie = await _service.GetMovie(movieId);
+            if (_movie == null)
+                _movie = new MoviesModel();
+
         }
 
 
