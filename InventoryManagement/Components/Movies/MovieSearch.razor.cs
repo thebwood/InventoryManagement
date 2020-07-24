@@ -3,7 +3,7 @@ using InventoryManagement.Shared.BaseClasses;
 
 namespace InventoryManagement.Components.Movies
 {
-    public partial class MovieSearch : CommonMovie
+    public partial class MovieSearch : CommonMovieFunctions
     {
     }
 }

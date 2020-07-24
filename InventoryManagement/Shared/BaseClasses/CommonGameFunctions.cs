@@ -1,15 +1,18 @@
 ﻿using InventoryManagement.Services;
 using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace InventoryManagement.Shared.BaseClasses
 {
-    public class CommonPeople : CommonComponent
+    public class CommonGameFunctions : CommonComponent
     {
         #region Dependency Injection
-
         [Inject]
-        public PeopleService Service { get; set; }
-
+        public GamesService Service { get; set; }
         #endregion
+
     }
 }

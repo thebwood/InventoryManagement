@@ -2,7 +2,7 @@
 
 namespace InventoryManagement.Components.Movies
 {
-    public partial class MovieForm : CommonMovie
+    public partial class MovieForm : CommonMovieFunctions
     {
     }
 }

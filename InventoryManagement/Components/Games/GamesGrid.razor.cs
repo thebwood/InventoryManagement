@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace InventoryManagement.Components.Games
 {
-    public partial class GamesGrid : CommonGame
+    public partial class GamesGrid : CommonGameFunctions
     {
         #region Parameters
         

@@ -2,7 +2,7 @@
 
 namespace InventoryManagement.Components.People
 {
-    public partial class PersonForm: CommonPeople
+    public partial class PersonForm: CommonPeopleFunctions
     {
     }
 }

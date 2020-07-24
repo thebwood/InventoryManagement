@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Pages.Movies
 {
-    public partial class Movie : CommonMovie
+    public partial class Movie : CommonMovieFunctions
     {
 
         #region Private Variables

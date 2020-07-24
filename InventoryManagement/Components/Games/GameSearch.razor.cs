@@ -2,7 +2,7 @@
 
 namespace InventoryManagement.Components.Games
 {
-    public partial class GameSearch : CommonGame
+    public partial class GameSearch : CommonGameFunctions
     {
     }
 }

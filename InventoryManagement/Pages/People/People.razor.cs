@@ -2,7 +2,7 @@
 
 namespace InventoryManagement.Pages.People
 {
-    public partial class People : CommonPeople
+    public partial class People : CommonPeopleFunctions
     {
     }
 }

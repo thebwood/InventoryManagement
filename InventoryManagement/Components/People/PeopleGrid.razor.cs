@@ -2,7 +2,7 @@
 
 namespace InventoryManagement.Components.People
 {
-    public partial class PeopleGrid : CommonPeople
+    public partial class PeopleGrid : CommonPeopleFunctions
     {
     }
 }

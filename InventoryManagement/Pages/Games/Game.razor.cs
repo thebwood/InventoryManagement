@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace InventoryManagement.Pages.Games
 {
-    public partial class Game : CommonGame
+    public partial class Game : CommonGameFunctions
     {
         [Parameter]
         public long GameId { get; set; }

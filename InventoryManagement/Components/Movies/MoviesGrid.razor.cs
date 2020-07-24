@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace InventoryManagement.Components.Movies
 {
-    public partial class MoviesGrid : CommonMovie
+    public partial class MoviesGrid : CommonMovieFunctions
     {
         #region Parameters
 

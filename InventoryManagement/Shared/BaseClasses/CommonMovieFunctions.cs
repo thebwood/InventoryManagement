@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Shared.BaseClasses
 {
-    public class CommonGame : CommonComponent
+    public class CommonMovieFunctions : CommonComponent
     {
         #region Dependency Injection
         [Inject]
-        public GamesService Service { get; set; }
+        public MoviesService Service { get; set; }
         #endregion
 
     }

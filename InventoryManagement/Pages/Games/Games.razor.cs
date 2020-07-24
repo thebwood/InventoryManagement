@@ -2,7 +2,7 @@
 
 namespace InventoryManagement.Pages.Games
 {
-    public partial class Games : CommonGame
+    public partial class Games : CommonGameFunctions
     {
     }
 }
