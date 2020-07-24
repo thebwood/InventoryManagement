@@ -1,18 +1,18 @@
-﻿@inherits ComponentBase
+﻿@inherits CommonGame
 
 
-    <div>
-        <MatTable Items="Models"
-                  class="mat-elevation-z5"
-                  AllowSelection="true">
-            <MatTableHeader>
-                <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-            </MatTableHeader>
-            <MatTableRow>
-                <td>@context.Name</td>
-                <td>@context.ReleaseDate</td>
-            </MatTableRow>
-        </MatTable>
-    </div>
+<div>
+    <MatTable Items="Models"
+              class="mat-elevation-z5"
+              AllowSelection="true">
+        <MatTableHeader>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </MatTableHeader>
+        <MatTableRow>
+            <td>@context.Name</td>
+            <td>@context.ReleaseDate</td>
+        </MatTableRow>
+    </MatTable>
+</div>

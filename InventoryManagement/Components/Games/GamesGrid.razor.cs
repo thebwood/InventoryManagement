@@ -1,13 +1,11 @@
 ﻿using InventoryManagement.Models.Games;
+using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace InventoryManagement.Components.Games
 {
-    public partial class GamesGrid : ComponentBase
+    public partial class GamesGrid : CommonGame
     {
         #region Parameters
         

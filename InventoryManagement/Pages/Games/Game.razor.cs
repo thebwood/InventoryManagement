@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InventoryManagement.Shared.BaseClasses;
+using Microsoft.AspNetCore.Components;
 
 namespace InventoryManagement.Pages.Games
 {
-    public partial class Game : ComponentBase
+    public partial class Game : CommonGame
     {
+        [Parameter]
+        public long GameId { get; set; }
     }
 }

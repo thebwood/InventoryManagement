@@ -1,5 +1,6 @@
 ﻿using InventoryManagement.Models.Movies;
 using InventoryManagement.Services;
+using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,8 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Pages.Movies
 {
-    public partial class Movies : ComponentBase
+    public partial class Movies : CommonMovie
     {
-        #region Dependency Injection
-        public MoviesService _service = new MoviesService();
-
-        #endregion
 
         #region Private Variables
         private List<MoviesModel> _movies;
@@ -25,7 +22,7 @@ namespace InventoryManagement.Pages.Movies
 
         protected override async Task OnInitializedAsync()
         {
-            _movies = await _service.GetMovies();
+            _movies = await this.Service.GetMovies();
             if (_movies == null)
                 _movies = new List<MoviesModel>();
         }

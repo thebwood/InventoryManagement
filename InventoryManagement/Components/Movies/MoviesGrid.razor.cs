@@ -1,16 +1,12 @@
 ﻿using InventoryManagement.Models.Movies;
+using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace InventoryManagement.Components.Movies
 {
-    public partial class MoviesGrid : ComponentBase
+    public partial class MoviesGrid : CommonMovie
     {
-        [Inject]
-        private NavigationManager _navigationManager { get; set; }
         #region Parameters
 
         [Parameter]
@@ -20,7 +16,7 @@ namespace InventoryManagement.Components.Movies
 
         public void EditMovie(long movieId)
         {
-            _navigationManager.NavigateTo("movies/" + movieId.ToString());
+            this.NavigationManager.NavigateTo("movies/" + movieId.ToString());
 
         }
     }

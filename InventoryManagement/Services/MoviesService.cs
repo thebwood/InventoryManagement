@@ -17,7 +17,7 @@ namespace InventoryManagement.Services
             return await this.GetAPIResult<List<MoviesModel>>(baseURL, "api/movies");
         }
 
-        public async Task<MoviesModel> GetMovie(int movieId)
+        public async Task<MoviesModel> GetMovie(long movieId)
         {
             var baseURL = "https://localhost:44349/";
             return await this.GetAPIResult<MoviesModel>(baseURL, "api/movies/" + movieId.ToString());

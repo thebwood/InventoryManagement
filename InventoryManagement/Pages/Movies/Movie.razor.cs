@@ -1,22 +1,15 @@
 ﻿using InventoryManagement.Models.Movies;
 using InventoryManagement.Services;
+using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace InventoryManagement.Pages.Movies
 {
-    public partial class Movie : ComponentBase
+    public partial class Movie : CommonMovie
     {
-        #region Dependency Injection
-        [Inject]
-        private MoviesService _service { get; set; }
-        [Inject]
-        private NavigationManager _navigationManager { get; set; }
-        #endregion
 
         #region Private Variables
         private MoviesModel _movie = new MoviesModel();
@@ -24,7 +17,7 @@ namespace InventoryManagement.Pages.Movies
 
         #region Parameters
         [Parameter]
-        public int MovieId { get; set; }
+        public long MovieId { get; set; }
 
         #endregion
 
@@ -32,9 +25,7 @@ namespace InventoryManagement.Pages.Movies
 
         protected override async Task OnInitializedAsync()
         {
-            Console.WriteLine("MovieId");
-            Console.WriteLine(MovieId);
-            _movie = await _service.GetMovie(MovieId);
+            _movie = await this.Service.GetMovie(MovieId);
         }
 
         #endregion
@@ -44,10 +35,10 @@ namespace InventoryManagement.Pages.Movies
         private async Task SaveMovieAsync()
         {
 
-            var messages = await _service.SaveMovie(_movie);
+            var messages = await this.Service.SaveMovie(_movie);
             if(messages.Count() == 0)
             {
-                _navigationManager.NavigateTo("movies");
+                this.NavigationManager.NavigateTo("movies");
             }
         }
         #endregion
