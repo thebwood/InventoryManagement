@@ -13,6 +13,10 @@ namespace InventoryManagement.Pages.Movies
         #region Private Variables
         private MoviesModel _movie = new MoviesModel();
         private List<MovieRatingsModel> _movieRatings = new List<MovieRatingsModel>();
+
+        private Task<MoviesModel> _movieTask;
+        private Task<List<MovieRatingsModel>> _movieRatingsTask;
+
         #endregion
 
         #region Parameters
@@ -23,10 +27,21 @@ namespace InventoryManagement.Pages.Movies
 
         #region Blazor Events
 
-        protected override async Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            _movie = await this.Service.GetMovie(MovieId);
-            _movieRatings = await this.Service.GetMovieRatings();
+            _movieTask = this.Service.GetMovie(MovieId);
+            _movieRatingsTask = this.Service.GetMovieRatings();
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if(firstRender)
+            {
+                await Task.WhenAll(_movieTask, _movieRatingsTask);
+                _movie = _movieTask.Result;
+                _movieRatings = _movieRatingsTask.Result;
+                this.StateHasChanged();
+            }
         }
 
         #endregion
