@@ -1,4 +1,5 @@
-InventoryManagement/bin/
-InventoryManagement/obj/
-InventoryManagement/obj/Debug/
-InventoryManagement/obj/Debug/netstandard2.1
+InventoryManagement/bin/*
+InventoryManagement/obj/*
+InventoryManagement/obj/Debug/*
+InventoryManagement/obj/Debug/netstandard2.1/*
+InventoryManagement/obj/Debug/netstandard2.1/blazor/unlinked/*

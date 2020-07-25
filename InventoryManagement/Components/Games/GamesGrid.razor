@@ -6,13 +6,29 @@
               class="mat-elevation-z5"
               AllowSelection="true">
         <MatTableHeader>
-            <th>Id</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
+            <th class="editButton">Edit</th>
+            <th class="gameTitle">Title</th>
+            <th class="gameDescription">Description</th>
         </MatTableHeader>
         <MatTableRow>
-            <td>@context.Name</td>
-            <td>@context.ReleaseDate</td>
+            <td><MatButton OnClick="() => EditGame(context.Id)">Edit</MatButton></td>
+            <td>@context.Title</td>
+            <td>@context.Description</td>
         </MatTableRow>
     </MatTable>
 </div>
+
+<style>
+    .editButton {
+        width: 5%;
+    }
+
+    .gameTitle {
+        width: 20%;
+    }
+
+    .gameDescription {
+        width: 75%;
+    }
+
+</style>

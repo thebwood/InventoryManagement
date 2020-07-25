@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryManagement.Models.Games;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,5 +8,24 @@ namespace InventoryManagement.Services
 {
     public class GamesService : BaseService
     {
+        public async Task<List<GamesModel>> GetGames()
+        {
+            var baseURL = "https://localhost:44334/";
+            return await this.GetAPIResult<List<GamesModel>>(baseURL, "api/games");
+        }
+
+        public async Task<GamesModel> GetGame(long gameId)
+        {
+            var baseURL = "https://localhost:44334/";
+            return await this.GetAPIResult<GamesModel>(baseURL, "api/games/" + gameId.ToString());
+        }
+
+
+        public async Task<List<string>> SaveGame(GamesModel game)
+        {
+            var baseURL = "https://localhost:44334/";
+            return await this.PostAPIResult<GamesModel>(baseURL, "api/games/", game);
+        }
+
     }
 }

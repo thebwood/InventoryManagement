@@ -11,7 +11,16 @@ namespace InventoryManagement.Components.Games
         
         [Parameter]
         public List<GamesModel> Models { get; set; }
+
         #endregion
 
+        #region Events
+
+        private void EditGame(long gameId)
+        {
+            this.NavigationManager.NavigateTo("games/" + gameId.ToString());
+        }
+
+        #endregion
     }
 }

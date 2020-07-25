@@ -8,9 +8,11 @@ namespace InventoryManagement.Models.Games
 {
     public class GamesModel
     {
-        public Guid Identifier { get; set; } = Guid.NewGuid();
-        public string Name { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public long Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int GameRatingsId { get; set; }
+
         public List<GameTypesModel> Types { get; set; }
 
     }
