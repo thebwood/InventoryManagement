@@ -41,6 +41,11 @@ namespace InventoryManagement.Pages.Movies
                 this.NavigationManager.NavigateTo("movies");
             }
         }
+
+        private void CancelMovieSave()
+        {
+            this.NavigationManager.NavigateTo("movies");
+        }
         #endregion
     }
 }

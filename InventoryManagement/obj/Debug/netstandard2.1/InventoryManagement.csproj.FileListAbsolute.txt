@@ -389,6 +389,6 @@ D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\De
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\InventoryManagement.dll
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\InventoryManagement.pdb
 D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\InventoryManagement.csprojAssemblyReference.cache
-D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\rZfU71E31YVThbK34_AwYOykVPFoMcEJzqJAkgKEWYo=.hash
-D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\IIDYc0hEvNH-Qgehs1X_os_9UuIvvJUnlG1ceAEkTqY=.hash
-D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\9MOknHZRTq7nve9-viqVXo6on9LEP3tw74WZzkIyyCs=.hash
+D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\cxrbu20HV4IjDAo8vIVMtE5R3cTi90Tv3DqbYfMy9Wg=.hash
+D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\fg1jqU84K01VEN5em3EfqeD9NTj6hj60WpOUoCfyABg=.hash
+D:\Development\GitHub\Blazor Apps\InventoryManagement\InventoryManagement\obj\Debug\netstandard2.1\integrity\4aoVoNTlD_SVGNoAooKURH6yBzjDc2hDjj0WTbkdlDM=.hash
