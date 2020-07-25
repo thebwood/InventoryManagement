@@ -29,6 +29,18 @@
                     <MatTextField FullWidth="true" TValue="int?" @bind-Value="@_movie.Minutes" Label="Minutes"></MatTextField>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-6">
+                    <MatSelect FullWidth="true" Label="Movie Rating" @bind-Value="_movie.MovieRatingsId" TValue="int">
+                        @foreach (var rating in _movieRatings)
+                        {
+                            var movieRating = rating.Rating + " (" + rating.Age.ToString() + "+)";
+                            <MatOption TValue="int" Value="@rating.Id">@movieRating</MatOption>
+                        }
+
+                    </MatSelect>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-12 text-right">
