@@ -11,11 +11,14 @@ namespace InventoryManagement.Services
 {
     public class MoviesService : BaseService
     {
+        #region Movies
+
         public async Task<List<MoviesModel>> GetMovies()
         {
             var baseURL = "https://localhost:44349/";
             return await this.GetAPIResult<List<MoviesModel>>(baseURL, "api/movies");
         }
+
 
         public async Task<MoviesModel> GetMovie(long movieId)
         {
@@ -30,5 +33,17 @@ namespace InventoryManagement.Services
             return await this.PostAPIResult<MoviesModel>(baseURL, "api/movies/", movie);
         }
 
+        #endregion
+
+        #region Movie Ratings
+
+        public async Task<List<MovieRatingsModel>> GetMovieRatings()
+        {
+            var baseURL = "https://localhost:44349/";
+            return await this.GetAPIResult<List<MovieRatingsModel>>(baseURL, "api/movies/ratings");
+        }
+
+
+        #endregion
     }
 }
