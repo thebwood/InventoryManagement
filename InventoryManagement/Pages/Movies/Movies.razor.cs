@@ -27,7 +27,11 @@ namespace InventoryManagement.Pages.Movies
                 _movies = new List<MoviesModel>();
         }
 
+        private void AddMovie()
+        {
+            this.NavigationManager.NavigateTo("movies/0");
 
+        }
         #endregion
     }
 }

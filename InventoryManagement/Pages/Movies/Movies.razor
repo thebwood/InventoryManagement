@@ -2,5 +2,19 @@
 @page "/movies"
 
 <h3>Movies</h3>
+<div class="moviesList">
+    <div class="row">
+        <div class="col-12 text-right">
+            <MatButton OnClick="@AddMovie" Label="Add" Icon="add"></MatButton>
 
-<MoviesGrid Models="_movies"></MoviesGrid>
+        </div>
+
+    </div>
+    <MoviesGrid Models="_movies"></MoviesGrid>
+</div>
+
+<style>
+    .moviesList{
+        padding: 1%;
+    }
+</style>

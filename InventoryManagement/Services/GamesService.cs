@@ -8,6 +8,8 @@ namespace InventoryManagement.Services
 {
     public class GamesService : BaseService
     {
+        #region Games
+
         public async Task<List<GamesModel>> GetGames()
         {
             var baseURL = "https://localhost:44334/";
@@ -26,6 +28,18 @@ namespace InventoryManagement.Services
             var baseURL = "https://localhost:44334/";
             return await this.PostAPIResult<GamesModel>(baseURL, "api/games/", game);
         }
+
+        #endregion
+
+        #region Game Ratings
+
+        public async Task<List<GameRatingsModel>> GetGameRatings()
+        {
+            var baseURL = "https://localhost:44334/";
+            return await this.GetAPIResult<List<GameRatingsModel>>(baseURL, "api/games/ratings");
+        }
+
+        #endregion
 
     }
 }

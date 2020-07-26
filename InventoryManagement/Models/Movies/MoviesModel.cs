@@ -11,7 +11,7 @@ namespace InventoryManagement.Models.Movies
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime? ReleaseDate { get; set; }
-        public int MovieRatingsId { get; set; }
+        public int MovieRatingsId { get; set; } = 1;
         public int? Hours { get; set; }
         public int? Minutes { get; set; }
         public MovieRatingsModel Rating { get; set; }

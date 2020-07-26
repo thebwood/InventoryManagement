@@ -21,7 +21,7 @@ namespace InventoryManagement.Pages.Movies
 
         #region Parameters
         [Parameter]
-        public long MovieId { get; set; }
+        public long MovieId { get; set; } = 0;
 
         #endregion
 
@@ -29,7 +29,10 @@ namespace InventoryManagement.Pages.Movies
 
         protected override void OnInitialized()
         {
-            _movieTask = this.Service.GetMovie(MovieId);
+            if(MovieId > 0)
+            {
+                _movieTask = this.Service.GetMovie(MovieId);
+            }
             _movieRatingsTask = this.Service.GetMovieRatings();
         }
 
@@ -37,8 +40,17 @@ namespace InventoryManagement.Pages.Movies
         {
             if(firstRender)
             {
-                await Task.WhenAll(_movieTask, _movieRatingsTask);
-                _movie = _movieTask.Result;
+
+                if (MovieId > 0)
+                {
+                    await Task.WhenAll(_movieTask, _movieRatingsTask);
+                    _movie = _movieTask.Result;
+                }
+                else
+                {
+                    await Task.WhenAll(_movieRatingsTask);
+                }
+
                 _movieRatings = _movieRatingsTask.Result;
                 this.StateHasChanged();
             }

@@ -1,23 +1,26 @@
 ﻿@inherits CommonMovieFunctions
 
 
-<div>
-    <MatTable Items="Models" UseSortHeaderRow="true">
-        <MatTableHeader>
-            <th class="editButton">Edit</th>
-            <th class="movieTitle">Title</th>
-            <th class="movieDescription">Description</th>
-            <th class="movieHrs">Hrs</th>
-            <th class="movieMin">Min</th>
-        </MatTableHeader>
-        <MatTableRow>
-            <td><MatButton OnClick="() => EditMovie(context.Id)">Edit</MatButton></td>
-            <td>@context.Title</td>
-            <td>@context.Description</td>
-            <td>@context.Hours</td>
-            <td>@context.Minutes</td>
-        </MatTableRow>
-    </MatTable>
+<div class="row">
+    <div class="col-12">
+        <MatTable Items="Models" UseSortHeaderRow="true">
+            <MatTableHeader>
+                <th class="editButton">Edit</th>
+                <th class="movieTitle">Title</th>
+                <th class="movieDescription">Description</th>
+                <th class="movieHrs">Hrs</th>
+                <th class="movieMin">Min</th>
+            </MatTableHeader>
+            <MatTableRow>
+                <td><MatButton OnClick="() => EditMovie(context.Id)">Edit</MatButton></td>
+                <td>@context.Title</td>
+                <td>@context.Description</td>
+                <td>@context.Hours</td>
+                <td>@context.Minutes</td>
+            </MatTableRow>
+        </MatTable>
+
+    </div>
 </div>
 
 <style>
