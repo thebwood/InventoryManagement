@@ -10,7 +10,19 @@
         </div>
 
     </div>
-    <MoviesGrid Models="_movies"></MoviesGrid>
+
+    @if (_movies.Count() > 0)
+    {
+        <MoviesGrid Models="_movies"></MoviesGrid>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-12 text-left">
+                <span>There are no records</span>
+            </div>
+        </div>
+    }
 </div>
 
 <style>

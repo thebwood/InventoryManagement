@@ -1,5 +1,5 @@
-﻿using InventoryManagement.Models.RefData;
-using InventoryManagement.Models.RefData.Movies;
+﻿using InventoryManagement.Models.Games;
+using InventoryManagement.Models.Movies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.StateManagement
 {
-    public class RefDataStateManagement
+    public class ReferenceDataStateManagement
     {
         public List<GameTypesModel> GameTypes { get; private set; }
         public List<MovieGenresModel> MovieGenres { get; private set; }

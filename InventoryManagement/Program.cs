@@ -24,7 +24,6 @@ namespace InventoryManagement
 
             builder.Services.AddSingleton<MoviesService>();
             builder.Services.AddSingleton<GamesService>();
-            builder.Services.AddSingleton<RefDataService>();
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });

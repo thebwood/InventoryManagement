@@ -2,9 +2,20 @@
 @page "/games"
 
 
-<div class="row">
-    <div class="col-12">
-        <GamesGrid Models="_games"></GamesGrid>
+    <div class="gamesList">
+        <div class="row">
+            <div class="col-12 text-right">
+                <MatButton OnClick="@AddGame" Label="Add" Icon="add"></MatButton>
 
+            </div>
+
+        </div>
+        @if (_games.Count() > 0)
+        {
+            <GamesGrid Models="_games"></GamesGrid>
+        }
+        else
+        {
+            <span>There are no records</span>
+        }
     </div>
-</div>

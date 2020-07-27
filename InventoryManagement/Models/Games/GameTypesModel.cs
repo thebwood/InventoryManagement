@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InventoryManagement.Models.RefData.Movies
+namespace InventoryManagement.Models.Games
 {
-    public class MovieGenresModel
+    public class GameTypesModel
     {
         public long Id { get; set; }
+        public string Code { get; set; }
         public string Description { get; set; }
     }
 }

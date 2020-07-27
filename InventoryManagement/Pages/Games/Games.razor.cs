@@ -22,5 +22,16 @@ namespace InventoryManagement.Pages.Games
                 _games = new List<GamesModel>();
         }
         #endregion
+
+        #region Events
+
+        private void AddGame()
+        {
+            this.NavigationManager.NavigateTo("games/0");
+
+        }
+
+        #endregion
+
     }
 }
