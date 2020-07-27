@@ -10,7 +10,7 @@
             </div>
 
         </div>
-        @if (_games.Count() > 0)
+        @if (_games != null && _games.Count() > 0)
         {
             <GamesGrid Models="_games"></GamesGrid>
         }

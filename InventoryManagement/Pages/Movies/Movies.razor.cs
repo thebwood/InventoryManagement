@@ -14,30 +14,18 @@ namespace InventoryManagement.Pages.Movies
 
         #region Private Variables
         private List<MoviesModel> _movies;
-        private Task<List<MoviesModel>> _moviesTask;
         #endregion
 
 
 
         #region Blazor Events
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            _moviesTask = this.Service.GetMovies();
+            _movies = await this.Service.GetMovies();
+            if (_movies == null)
+                _movies = new List<MoviesModel>();
         }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if(firstRender)
-            {
-                await Task.WhenAll(_moviesTask);
-                _movies = _moviesTask.Result;
-
-                if (_movies == null)
-                    _movies = new List<MoviesModel>();
-            }
-        }
-
         #endregion
 
         #region Events

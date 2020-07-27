@@ -12,7 +12,5 @@ namespace InventoryManagement.Models.Games
         public string Description { get; set; }
         public int GameRatingsId { get; set; }
 
-        public List<GameTypesModel> Types { get; set; }
-
     }
 }
