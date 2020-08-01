@@ -8,6 +8,7 @@
                 <th class="editButton">Edit</th>
                 <th class="movieTitle">Title</th>
                 <th class="movieDescription">Description</th>
+                <th class="movieRating">Rating</th>
                 <th class="movieHrs">Hrs</th>
                 <th class="movieMin">Min</th>
             </MatTableHeader>
@@ -15,6 +16,7 @@
                 <td><MatButton OnClick="() => EditMovie(context.Id)">Edit</MatButton></td>
                 <td>@context.Title</td>
                 <td>@context.Description</td>
+                <td>@context.MovieRating</td>
                 <td>@context.Hours</td>
                 <td>@context.Minutes</td>
             </MatTableRow>
@@ -33,10 +35,13 @@
     }
 
     .movieDescription {
-        width: 65%;
+        width: 60%;
     }
 
-    .movieHrs {
+    .movieRating {
+        width: 5%;
+    }
+     .movieHrs {
         width: 5%;
     }
 

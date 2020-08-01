@@ -14,5 +14,15 @@ namespace InventoryManagement.Shared.BaseClasses
         public GamesService Service { get; set; }
         #endregion
 
+        #region Events
+
+        public string GetRatingWithAge(string rating, int age)
+        {
+            return rating + " (" + age.ToString() + "+)";
+
+        }
+
+        #endregion
+
     }
 }

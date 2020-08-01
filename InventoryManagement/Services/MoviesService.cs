@@ -50,5 +50,15 @@ namespace InventoryManagement.Services
 
 
         #endregion
+
+        #region Movie Genres
+
+        public async Task<List<MovieGenresModel>> GetMovieGenres()
+        {
+            var baseURL = "https://localhost:44349/";
+            return await this.GetAPIResult<List<MovieGenresModel>>(baseURL, "api/movies/genres");
+        }
+
+        #endregion
     }
 }

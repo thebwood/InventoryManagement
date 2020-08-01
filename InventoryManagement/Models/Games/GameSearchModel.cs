@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InventoryManagement.Models.Movies
+namespace InventoryManagement.Models.Games
 {
-    public class MovieSearchModel
+    public class GameSearchModel
     {
         public string Title { get; set; }
         public string Description { get; set; }
         public int? ReleaseYear { get; set; }
-        public int? MovieRatingsId { get; set; }
-        public List<int> MovieGenreIds { get; set; }
+        public int? GameRatingsId { get; set; }
+        public List<int> GameTypeIds { get; set; }
     }
 }

@@ -34,8 +34,7 @@
                     <MatSelect FullWidth="true" Label="Movie Rating" @bind-Value="_movie.MovieRatingsId" TValue="int">
                         @foreach (var rating in _movieRatings)
                         {
-                            var movieRating = rating.Rating + " (" + rating.Age.ToString() + "+)";
-                            <MatOption TValue="int" Value="@rating.Id">@movieRating</MatOption>
+                            <MatOption TValue="int" Value="@rating.Id">@this.GetRatingWithAge(rating.Rating, rating.Age)</MatOption>
                         }
 
                     </MatSelect>

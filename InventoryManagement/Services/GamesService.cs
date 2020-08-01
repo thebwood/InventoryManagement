@@ -30,6 +30,12 @@ namespace InventoryManagement.Services
 
         }
 
+        public async Task<List<GameSearchResultsModel>> SearchGames(GameSearchModel searchModel)
+        {
+            var baseURL = "https://localhost:44334/";
+            return await this.PostAPIResult<List<GameSearchResultsModel>, GameSearchModel>(baseURL, "api/games/search", searchModel);
+        }
+
         #endregion
 
         #region Game Ratings

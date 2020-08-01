@@ -10,7 +10,7 @@ namespace InventoryManagement.Components.Games
         #region Parameters
         
         [Parameter]
-        public List<GamesModel> Models { get; set; }
+        public List<GameSearchResultsModel> Models { get; set; }
 
         #endregion
 

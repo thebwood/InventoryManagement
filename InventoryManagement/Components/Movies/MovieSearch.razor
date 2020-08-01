@@ -6,14 +6,34 @@
 
             <div class="row">
                 <div class="col-6">
-                    <MatStringField FullWidth="true" @bind-Value="@searchModel.Title" Label="Title"></MatStringField>
+                    <MatStringField FullWidth="true" @bind-Value="@_searchModel.Title" Label="Title"></MatStringField>
+                </div>
+                <div class="col-3">
+                    <MatNumericUpDownField Label="Release Year" TValue="int?"
+                                           DecimalPlaces=0
+                                           @bind-Value=@_searchModel.ReleaseYear>
+                    </MatNumericUpDownField>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <MatStringField FullWidth="true" @bind-Value="@searchModel.Description" Label="Description"></MatStringField>
+                    <MatStringField FullWidth="true" @bind-Value="@_searchModel.Description" Label="Description"></MatStringField>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-3 text-left">
+                    <MatSelect FullWidth="true" Label="Movie Rating" @bind-Value="_searchModel.MovieRatingsId" TValue="int?">
+                        <MatOption TValue="int?" Value="null">Select a Value</MatOption>
+                        @foreach (var rating in _movieRatings)
+                        {
+                            <MatOption TValue="int?" Value="@rating.Id">@this.GetRatingWithAge(rating.Rating, rating.Age)</MatOption>
+                        }
+
+                    </MatSelect>
+                </div>
+            </div>
+
+
             <div class="row">
                 <div class="col-12 text-right">
                     <MatButton Raised="true" OnClick="@SearchMovie" Label="Search" Icon="search"></MatButton>

@@ -8,7 +8,7 @@ namespace InventoryManagement.Pages.Games
     public partial class Games : CommonGameFunctions
     {
         #region Private Variables
-        private List<GamesModel> _games;
+        private List<GameSearchResultsModel> _games;
         #endregion
 
 
@@ -17,9 +17,9 @@ namespace InventoryManagement.Pages.Games
 
         protected override async Task OnInitializedAsync()
         {
-            _games = await this.Service.GetGames();
+            await HandleGameSearch(new GameSearchModel());
             if (_games == null)
-                _games = new List<GamesModel>();
+                _games = new List<GameSearchResultsModel>();
         }
         #endregion
 
@@ -30,6 +30,12 @@ namespace InventoryManagement.Pages.Games
             this.NavigationManager.NavigateTo("games/0");
 
         }
+
+        private async Task HandleGameSearch(GameSearchModel searchModel)
+        {
+            _games = await this.Service.SearchGames(searchModel);
+        }
+
 
         #endregion
 

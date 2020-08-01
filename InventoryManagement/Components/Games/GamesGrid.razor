@@ -9,11 +9,13 @@
             <th class="editButton">Edit</th>
             <th class="gameTitle">Title</th>
             <th class="gameDescription">Description</th>
+            <th class="gameRating">Rating</th>
         </MatTableHeader>
         <MatTableRow>
             <td><MatButton OnClick="() => EditGame(context.Id)">Edit</MatButton></td>
             <td>@context.Title</td>
             <td>@context.Description</td>
+            <td>@context.GameRating</td>
         </MatTableRow>
     </MatTable>
 </div>
@@ -28,7 +30,9 @@
     }
 
     .gameDescription {
-        width: 75%;
+        width: 65%;
     }
-
+    .gameRating {
+        width: 10%;
+    }
 </style>
