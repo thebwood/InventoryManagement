@@ -19,6 +19,11 @@ namespace InventoryManagement.Services
             return await this.GetAPIResult<List<MoviesModel>>(baseURL, "api/movies");
         }
 
+        public async Task<List<MovieSearchResultsModel>> SearchMovies(MovieSearchModel searchModel)
+        {
+            var baseURL = "https://localhost:44349/";
+            return await this.PostAPIResult<List<MovieSearchResultsModel>, MovieSearchModel>(baseURL, "api/movies/search", searchModel);
+        }
 
         public async Task<MoviesModel> GetMovie(long movieId)
         {
@@ -30,7 +35,7 @@ namespace InventoryManagement.Services
         public async Task<List<string>> SaveMovie(MoviesModel movie)
         {
             var baseURL = "https://localhost:44349/";
-            return await this.PostAPIResult<MoviesModel>(baseURL, "api/movies/", movie);
+            return await this.PostAPIResult<List<string>, MoviesModel >(baseURL, "api/movies/", movie);
         }
 
         #endregion

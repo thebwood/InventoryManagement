@@ -10,7 +10,7 @@ namespace InventoryManagement.Components.Movies
         #region Parameters
 
         [Parameter]
-        public List<MoviesModel> Models { get; set; }
+        public List<MovieSearchResultsModel> Models { get; set; }
         #endregion
 
 

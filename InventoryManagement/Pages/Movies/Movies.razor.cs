@@ -13,7 +13,7 @@ namespace InventoryManagement.Pages.Movies
     {
 
         #region Private Variables
-        private List<MoviesModel> _movies;
+        private List<MovieSearchResultsModel> _movies;
         #endregion
 
 
@@ -22,14 +22,17 @@ namespace InventoryManagement.Pages.Movies
 
         protected override async Task OnInitializedAsync()
         {
-            _movies = await this.Service.GetMovies();
+            await HandleMovieSearch(new MovieSearchModel());
             if (_movies == null)
-                _movies = new List<MoviesModel>();
+                _movies = new List<MovieSearchResultsModel>();
         }
         #endregion
 
         #region Events
-
+        private async Task HandleMovieSearch(MovieSearchModel searchModel)
+        {
+            _movies = await this.Service.SearchMovies(searchModel);
+        }
         private void AddMovie()
         {
             this.NavigationManager.NavigateTo("movies/0");

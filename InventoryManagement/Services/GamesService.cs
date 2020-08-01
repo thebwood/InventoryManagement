@@ -26,7 +26,8 @@ namespace InventoryManagement.Services
         public async Task<List<string>> SaveGame(GamesModel game)
         {
             var baseURL = "https://localhost:44334/";
-            return await this.PostAPIResult<GamesModel>(baseURL, "api/games/", game);
+            return await this.PostAPIResult<List<string>, GamesModel>(baseURL, "api/games/", game);
+
         }
 
         #endregion

@@ -29,7 +29,7 @@ namespace InventoryManagement.Services
             }
         }
 
-        public async Task<List<string>> PostAPIResult<T>(string baseURL, string apiCall, T model)
+        public async Task<T> PostAPIResult<T, U>(string baseURL, string apiCall, U model)
         {
             using (var httpClient = new HttpClient())
             {
@@ -38,10 +38,9 @@ namespace InventoryManagement.Services
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var response = await httpClient.PostAsJsonAsync(apiCall, model);
 
-                return JsonConvert.DeserializeObject<List<string>>(response.Content.ReadAsStringAsync().Result);
+                return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
             }
         }
-
 
     }
 }

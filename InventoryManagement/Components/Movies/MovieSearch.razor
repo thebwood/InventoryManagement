@@ -1,6 +1,13 @@
 ﻿@inherits CommonMovieFunctions
-<h3>MovieSearch</h3>
 
-@code {
-
-}
+<div class="row">
+    <div class="col-6">
+        <MatStringField FullWidth="true" @bind-Value="@searchModel.Title" Label="Title"></MatStringField>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 text-right">
+        <MatButton Raised="true" OnClick="@SearchMovie" Label="Search" Icon="search"></MatButton>
+        <MatButton Type="button" OnClick="@ResetMovieSearch" Label="Reset" Icon="reset"></MatButton>
+    </div>
+</div>
