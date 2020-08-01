@@ -1,13 +1,29 @@
 ﻿@inherits CommonMovieFunctions
 
-<div class="row">
-    <div class="col-6">
-        <MatStringField FullWidth="true" @bind-Value="@searchModel.Title" Label="Title"></MatStringField>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12 text-right">
-        <MatButton Raised="true" OnClick="@SearchMovie" Label="Search" Icon="search"></MatButton>
-        <MatButton Type="button" OnClick="@ResetMovieSearch" Label="Reset" Icon="reset"></MatButton>
-    </div>
-</div>
+    <MatCard Class="">
+        <MatCardContent Class="movieSearch">
+
+
+            <div class="row">
+                <div class="col-6">
+                    <MatStringField FullWidth="true" @bind-Value="@searchModel.Title" Label="Title"></MatStringField>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <MatStringField FullWidth="true" @bind-Value="@searchModel.Description" Label="Description"></MatStringField>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <MatButton Raised="true" OnClick="@SearchMovie" Label="Search" Icon="search"></MatButton>
+                    <MatButton Type="button" OnClick="@ResetMovieSearch" Label="Reset" Icon="clear"></MatButton>
+                </div>
+            </div>
+        </MatCardContent>
+    </MatCard>
+    <style>
+        .movieSearch {
+            padding: 1%;
+        }
+    </style>
