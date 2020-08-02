@@ -22,7 +22,7 @@
             </div>
             <div class="row">
                 <div class="col-3 text-left">
-                    <MatSelect FullWidth="true" Label="Movie Rating" @bind-Value="_searchModel.MovieRatingsId" TValue="int?">
+                    <MatSelect Label="Movie Rating" @bind-Value="_searchModel.MovieRatingsId" TValue="int?">
                         <MatOption TValue="int?" Value="null">Select a Value</MatOption>
                         @foreach (var rating in _movieRatings)
                         {
