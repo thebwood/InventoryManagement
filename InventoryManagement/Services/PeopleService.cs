@@ -10,7 +10,7 @@ namespace InventoryManagement.Services
     {
         #region Movies
 
-        public async Task<List<PersonSearchResultsModel>> SearchMovies(PersonSearchModel searchModel)
+        public async Task<List<PersonSearchResultsModel>> SearchPeople(PersonSearchModel searchModel)
         {
             var baseURL = "https://localhost:44308/";
             return await this.PostAPIResult<List<PersonSearchResultsModel>, PersonSearchModel>(baseURL, "api/people/search", searchModel);

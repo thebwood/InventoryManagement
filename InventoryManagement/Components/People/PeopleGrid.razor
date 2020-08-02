@@ -18,7 +18,7 @@
                 <td><MatButton OnClick="() => EditPerson(context.Id)">Edit</MatButton></td>
                 <td>@context.FirstName</td>
                 <td>@context.LastName</td>
-                <td>@(context.DateOfBirth.HasValue) ? context.DateOfBirth : ""</td>
+                <td>@this.GetDateOfBirth(context.DateOfBirth)</td>
                 <td>@context.City</td>
                 <td>@context.State</td>
                 <td>@context.BirthCity</td>

@@ -5,7 +5,7 @@
 <h3>Person</h3>
 
 <EditForm Model="_person">
-    <MatCard Class="">
+    <MatCard>
         <MatCardContent Class="personForm">
             <div class="row">
                 <div class="col-6">
@@ -20,11 +20,9 @@
                     <MatDatePicker FullWidth="true" @bind-Value="_person.DateOfBirth" Label="Date Of Birth" TValue="DateTime?"></MatDatePicker>
                 </div>
             </div>
-            <br />
-            <br />
             <div class="row">
                 <div class="col-6">
-                    <MatStringField FullWidth="true" @bind-Value="@_person.City" Label="Title"></MatStringField>
+                    <MatStringField FullWidth="true" @bind-Value="@_person.City" Label="City"></MatStringField>
                 </div>
                 <div class="col-6">
                     <MatSelect Label="State" @bind-Value="_person.StateId" TValue="int">
@@ -38,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <MatStringField FullWidth="true" @bind-Value="@_person.BirthCity" Label="Title"></MatStringField>
+                    <MatStringField FullWidth="true" @bind-Value="@_person.BirthCity" Label="Birth City"></MatStringField>
                 </div>
                 <div class="col-6">
                     <MatSelect Label="Birth State" @bind-Value="_person.BirthStateId" TValue="int">
@@ -49,7 +47,8 @@
                     </MatSelect>
                 </div>
             </div>
-
+            <br />
+            <br />
             <div class="row">
                 <div class="col-12 text-right">
                     <MatButton Raised="true" OnClick="@SavePerson" Label="Save" Icon="save"></MatButton>
