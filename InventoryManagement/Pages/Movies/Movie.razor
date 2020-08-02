@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <MatSelect FullWidth="true" Label="Movie Rating" @bind-Value="_movie.MovieRatingsId" TValue="int">
+                    <MatSelect Label="Movie Rating" @bind-Value="_movie.MovieRatingsId" TValue="int">
                         @foreach (var rating in _movieRatings)
                         {
                             <MatOption TValue="int" Value="@rating.Id">@this.GetRatingWithAge(rating.Rating, rating.Age)</MatOption>
@@ -43,7 +43,7 @@
 
             <div class="row">
                 <div class="col-12 text-right">
-                    <MatButton Raised="true" OnClick="@SaveMovieAsync" Label="Save" Icon="save"></MatButton>
+                    <MatButton Raised="true" OnClick="@SaveMovie" Label="Save" Icon="save"></MatButton>
                     <MatButton Type="button" OnClick="@CancelMovieSave" Label="Cancel" Icon="cancel"></MatButton>
                 </div>
             </div>

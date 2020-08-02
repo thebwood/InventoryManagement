@@ -8,6 +8,6 @@ namespace InventoryManagement.Models.People
     public class ActorModel
     {
         public Guid Identifier { get; set; } = Guid.NewGuid();
-        public PersonModel Person { get; set; }
+        public PeopleModel Person { get; set; }
     }
 }

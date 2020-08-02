@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Models.People
 {
-    public class PersonModel
+    public class StatesModel
     {
-        public Guid Identifier { get; set; } = Guid.NewGuid();
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

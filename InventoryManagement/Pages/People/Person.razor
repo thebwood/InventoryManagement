@@ -1,8 +1,67 @@
 ﻿@inherits CommonPeopleFunctions
 @page "/people/{PersonId:long}"
 
+
 <h3>Person</h3>
 
-@code {
+<EditForm Model="_person">
+    <MatCard Class="">
+        <MatCardContent Class="personForm">
+            <div class="row">
+                <div class="col-6">
+                    <MatStringField FullWidth="true" @bind-Value="@_person.FirstName" Label="First Name"></MatStringField>
+                </div>
+                <div class="col-6">
+                    <MatStringField FullWidth="true" @bind-Value="@_person.LastName" Label="Last Name"></MatStringField>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <MatDatePicker FullWidth="true" @bind-Value="_person.DateOfBirth" Label="Date Of Birth" TValue="DateTime?"></MatDatePicker>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-6">
+                    <MatStringField FullWidth="true" @bind-Value="@_person.City" Label="Title"></MatStringField>
+                </div>
+                <div class="col-6">
+                    <MatSelect Label="State" @bind-Value="_person.StateId" TValue="int">
+                        @foreach (var state in _states)
+                        {
+                            <MatOption TValue="int" Value="@state.Id">@state.Name</MatOption>
+                        }
 
-}
+                    </MatSelect>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <MatStringField FullWidth="true" @bind-Value="@_person.BirthCity" Label="Title"></MatStringField>
+                </div>
+                <div class="col-6">
+                    <MatSelect Label="Birth State" @bind-Value="_person.BirthStateId" TValue="int">
+                        @foreach (var state in _states)
+                        {
+                            <MatOption TValue="int" Value="@state.Id">@state.Name</MatOption>
+                        }
+                    </MatSelect>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-right">
+                    <MatButton Raised="true" OnClick="@SavePerson" Label="Save" Icon="save"></MatButton>
+                    <MatButton Type="button" OnClick="@CancelSave" Label="Cancel" Icon="cancel"></MatButton>
+                </div>
+            </div>
+        </MatCardContent>
+    </MatCard>
+</EditForm>
+
+<style>
+    .personForm {
+        padding: 1%;
+    }
+</style>

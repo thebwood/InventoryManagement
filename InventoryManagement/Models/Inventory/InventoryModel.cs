@@ -10,7 +10,7 @@ namespace InventoryManagement.Models.Inventory
     {
 
         public string CollectionName { get; set; }
-        public PersonModel Owner { get; set; }
+        public PeopleModel Owner { get; set; }
         public List<InventoryItemModel> Items { get; set; }
     }
 }

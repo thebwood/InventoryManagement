@@ -60,7 +60,7 @@ namespace InventoryManagement.Pages.Movies
 
         #region Events
 
-        private async Task SaveMovieAsync()
+        private async Task SaveMovie()
         {
 
             var messages = await this.Service.SaveMovie(_movie);
