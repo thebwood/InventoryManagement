@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-3 text-left">
                     <MatSelect Label="Movie Rating" @bind-Value="_searchModel.MovieRatingsId" TValue="int?">
-                        <MatOption TValue="int?" Value="null">Select a Value</MatOption>
+                        <MatOption TValue="int?" Value="null"></MatOption>
                         @foreach (var rating in _movieRatings)
                         {
                             <MatOption TValue="int?" Value="@rating.Id">@this.GetRatingWithAge(rating.Rating, rating.Age)</MatOption>
@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-12 text-right">
                     <MatButton Raised="true" OnClick="@SearchMovie" Label="Search" Icon="search"></MatButton>
-                    <MatButton Type="button" OnClick="@ResetMovieSearch" Label="Reset" Icon="clear"></MatButton>
+                    <MatButton Type="button" OnClick="@ResetSearch" Label="Reset" Icon="clear"></MatButton>
                 </div>
             </div>
         </MatCardContent>

@@ -70,7 +70,7 @@ namespace InventoryManagement.Pages.Movies
             }
         }
 
-        private void CancelMovieSave()
+        private void CancelSave()
         {
             this.NavigationManager.NavigateTo("movies");
         }

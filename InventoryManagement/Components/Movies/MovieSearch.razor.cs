@@ -22,7 +22,7 @@ namespace InventoryManagement.Components.Movies
         #region Parameters
 
         [Parameter]
-        public EventCallback<MovieSearchModel> OnSearchMovies { get; set; }
+        public EventCallback<MovieSearchModel> OnSearch { get; set; }
 
         #endregion
 
@@ -51,12 +51,12 @@ namespace InventoryManagement.Components.Movies
 
         private void SearchMovie()
         {
-            if(OnSearchMovies.HasDelegate)
+            if(OnSearch.HasDelegate)
             {
-                OnSearchMovies.InvokeAsync(_searchModel);
+                OnSearch.InvokeAsync(_searchModel);
             }
         }
-        private void ResetMovieSearch()
+        private void ResetSearch()
         {
             _searchModel = new MovieSearchModel();
         }

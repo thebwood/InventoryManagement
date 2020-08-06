@@ -1,18 +1,14 @@
-﻿@inherits CommonGameFunctions
-
+﻿@inherits CommonInventoryFunctions
 
 <MatCard>
     <MatCardContent Class="gameSearch">
 
 
         <div class="row">
-            <div class="col-6">
-                <MatStringField FullWidth="true" @bind-Value="@_searchModel.Title" Label="Title"></MatStringField>
-            </div>
             <div class="col-3">
-                <MatNumericUpDownField Label="Release Year" TValue="int?"
+                <MatNumericUpDownField Label="ID" TValue="long?"
                                        DecimalPlaces=0
-                                       @bind-Value=@_searchModel.ReleaseYear>
+                                       @bind-Value=@_searchModel.Id>
                 </MatNumericUpDownField>
             </div>
         </div>
@@ -23,20 +19,19 @@
         </div>
         <div class="row">
             <div class="col-3 text-left">
-                <MatSelect Label="Rating" @bind-Value="_searchModel.GameRatingsId" TValue="int?">
+                <MatSelect Label="Rating" @bind-Value="_searchModel.ItemTypeId" TValue="int?">
                     <MatOption TValue="int?" Value="null"></MatOption>
-                    @foreach (var rating in _gameRatings)
+                    @foreach (var record in _itemTypes)
                     {
-                        <MatOption TValue="int?" Value="@rating.Id">@this.GetRatingWithAge(rating.Rating, rating.Age)</MatOption>
+                        <MatOption TValue="int?" Value="@record.Id">@record.ItemType</MatOption>
                     }
-
                 </MatSelect>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-12 text-right">
-                <MatButton Raised="true" OnClick="@SearchGame" Label="Search" Icon="search"></MatButton>
+                <MatButton Raised="true" OnClick="@SearchInventory" Label="Search" Icon="search"></MatButton>
                 <MatButton Type="button" OnClick="@ResetSearch" Label="Reset" Icon="clear"></MatButton>
             </div>
         </div>

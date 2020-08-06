@@ -22,14 +22,14 @@ namespace InventoryManagement.Pages.Movies
 
         protected override async Task OnInitializedAsync()
         {
-            await HandleMovieSearch(new MovieSearchModel());
+            await HandleSearch(new MovieSearchModel());
             if (_movies == null)
                 _movies = new List<MovieSearchResultsModel>();
         }
         #endregion
 
         #region Events
-        private async Task HandleMovieSearch(MovieSearchModel searchModel)
+        private async Task HandleSearch(MovieSearchModel searchModel)
         {
             _movies = await this.Service.SearchMovies(searchModel);
         }

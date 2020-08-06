@@ -1,11 +1,12 @@
-﻿@inherits CommonMovieFunctions
-@page "/movies"
+﻿@inherits CommonInventoryFunctions
+@page "/inventory"
+
 
 <h3>Movies</h3>
-<div class="moviesList">
+<div class="inventoryList">
     <div class="row">
         <div class="col-12 text-right">
-            <MovieSearch OnSearch="HandleSearch"></MovieSearch>
+            <InventorySearch OnSearchInventory="HandleSearch"></InventorySearch>
 
         </div>
 
@@ -14,16 +15,16 @@
 
     <div class="row">
         <div class="col-12 text-right">
-            <MatButton OnClick="@AddMovie" Label="Add" Icon="add"></MatButton>
+            <MatButton OnClick="@AddInventory" Label="Add" Icon="add"></MatButton>
 
         </div>
 
     </div>
     <br />
 
-    @if (_movies != null && _movies.Count() > 0)
+    @if (_inventory != null && _inventory.Count > 0)
     {
-        <MoviesGrid Models="_movies"></MoviesGrid>
+        <InventoryGrid Models="_inventory"></InventoryGrid>
     }
     else
     {
@@ -36,7 +37,7 @@
 </div>
 
 <style>
-    .moviesList{
+    .inventoryList {
         padding: 1%;
     }
 </style>

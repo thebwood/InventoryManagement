@@ -60,7 +60,7 @@ namespace InventoryManagement.Pages.Games
 
         #region Events
 
-        private async Task SaveGameAsync()
+        private async Task SaveGame()
         {
 
             var messages = await this.Service.SaveGame(_game);
@@ -70,7 +70,7 @@ namespace InventoryManagement.Pages.Games
             }
         }
 
-        private void CancelGameSave()
+        private void CancelSave()
         {
             this.NavigationManager.NavigateTo("games");
         }

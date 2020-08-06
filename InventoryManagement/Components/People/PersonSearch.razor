@@ -23,7 +23,7 @@
             </div>
             <div class="col-3 text-left">
                 <MatSelect Label="State" @bind-Value="_searchModel.StateId" TValue="int?">
-                    <MatOption TValue="int?" Value="null">Select a Value</MatOption>
+                    <MatOption TValue="int?" Value="null"></MatOption>
                     @foreach (var state in _states)
                     {
                         <MatOption TValue="int?" Value="@state.Id">@state.Name</MatOption>
@@ -39,7 +39,7 @@
             </div>
             <div class="col-3 text-left">
                 <MatSelect Label="Birth State" @bind-Value="_searchModel.BirthStateId" TValue="int?">
-                    <MatOption TValue="int?" Value="null">Select a Value</MatOption>
+                    <MatOption TValue="int?" Value="null"></MatOption>
                     @foreach (var state in _states)
                     {
                         <MatOption TValue="int?" Value="@state.Id">@state.Name</MatOption>
