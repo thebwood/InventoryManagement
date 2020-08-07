@@ -5,7 +5,8 @@
 
 <h3>Movie</h3>
 
-<EditForm Model="_inventory">
+<EditForm EditContext="_editContext">
+    <DataAnnotationsValidator />
     <MatCard>
         <MatCardContent Class="movieForm">
             <div class="row">
@@ -24,17 +25,19 @@
             <div class="row">
                 <div class="col-12">
                     <MatTextField @bind-Value="@_inventory.Description" Label="Description" TextArea="true" FullWidth="true"></MatTextField>
+                    <ValidationMessage For="() => _inventory.Description" />
                 </div>
             </div>
             <br />
             <div class="row">
                 <div class="col-6">
-                    <MatSelect Label="Item Type" @bind-Value="_inventory.ItemTypeId" TValue="int">
+                    <MatSelect Label="Item Type" @bind-Value="_inventory.ItemTypeId" TValue="int?">
                         @foreach (var itemType in _itemTypes)
                         {
-                            <MatOption TValue="int" Value="@itemType.Id">@itemType.ItemType</MatOption>
+                            <MatOption TValue="int?" Value="@itemType.Id">@itemType.ItemType</MatOption>
                         }
                     </MatSelect>
+                    <ValidationMessage For="() => _inventory.ItemTypeId" />
                 </div>
             </div>
 

@@ -3,12 +3,14 @@
 
 <h3>Movie</h3>
 
-<EditForm Model="_movie">
+<EditForm EditContext="_editContext">
+    <DataAnnotationsValidator />
     <MatCard>
         <MatCardContent Class="movieForm">
             <div class="row">
                 <div class="col-6">
                     <MatStringField FullWidth="true" @bind-Value="@_movie.Title" Label="Title"></MatStringField>
+                    <ValidationMessage For="() => _movie.Title" />
                 </div>
                 <div class="col-6">
                     <MatDatePicker FullWidth="true" @bind-Value="_movie.ReleaseDate" Label="Release Date" TValue="DateTime?"></MatDatePicker>
@@ -18,6 +20,7 @@
             <div class="row">
                 <div class="col-12">
                     <MatTextField @bind-Value="@_movie.Description" Label="Description" TextArea="true" FullWidth="true"></MatTextField>
+                    <ValidationMessage For="() => _movie.Description" />
                 </div>
             </div>
             <br />
@@ -31,13 +34,14 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <MatSelect Label="Movie Rating" @bind-Value="_movie.MovieRatingsId" TValue="int">
+                    <MatSelect Label="Movie Rating" @bind-Value="_movie.MovieRatingsId" TValue="int?">
                         @foreach (var rating in _movieRatings)
                         {
-                            <MatOption TValue="int" Value="@rating.Id">@this.GetRatingWithAge(rating.Rating, rating.Age)</MatOption>
+                            <MatOption TValue="int?" Value="@rating.Id">@this.GetRatingWithAge(rating.Rating, rating.Age)</MatOption>
                         }
 
                     </MatSelect>
+                    <ValidationMessage For="() => _movie.MovieRatingsId" />
                 </div>
             </div>
 

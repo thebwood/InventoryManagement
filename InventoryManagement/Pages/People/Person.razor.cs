@@ -1,6 +1,7 @@
 ﻿using InventoryManagement.Models.People;
 using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,6 +10,8 @@ namespace InventoryManagement.Pages.People
     public partial class Person : CommonPeopleFunctions
     {
         #region Private Variables
+        private EditContext _editContext;
+
         private PeopleModel _person = new PeopleModel();
         private List<StatesModel> _states = new List<StatesModel>();
 
@@ -28,6 +31,7 @@ namespace InventoryManagement.Pages.People
 
         protected override void OnInitialized()
         {
+            _editContext = new EditContext(_person);
             if (PersonId > 0)
             {
                 _personTask = this.Service.GetPerson(PersonId);
@@ -61,11 +65,14 @@ namespace InventoryManagement.Pages.People
 
         private async Task SavePerson()
         {
-
-            var messages = await this.Service.SavePerson(_person);
-            if (messages.Count == 0)
+            if(_editContext.Validate())
             {
-                this.NavigationManager.NavigateTo("people");
+                var messages = await this.Service.SavePerson(_person);
+                if (messages.Count == 0)
+                {
+                    this.NavigationManager.NavigateTo("people");
+                }
+
             }
         }
 

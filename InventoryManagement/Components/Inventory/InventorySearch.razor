@@ -1,14 +1,14 @@
 ﻿@inherits CommonInventoryFunctions
 
 <MatCard>
-    <MatCardContent Class="gameSearch">
+    <MatCardContent Class="inventorySearch">
 
 
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 text-left">
                 <MatNumericUpDownField Label="ID" TValue="long?"
-                                       DecimalPlaces=0
-                                       @bind-Value=@_searchModel.Id>
+                                        DecimalPlaces=0
+                                        @bind-Value=@_searchModel.Id>
                 </MatNumericUpDownField>
             </div>
         </div>
@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-3 text-left">
-                <MatSelect Label="Rating" @bind-Value="_searchModel.ItemTypeId" TValue="int?">
+                <MatSelect Label="Item Type" @bind-Value="_searchModel.ItemTypeId" TValue="int?">
                     <MatOption TValue="int?" Value="null"></MatOption>
                     @foreach (var record in _itemTypes)
                     {
@@ -38,7 +38,7 @@
     </MatCardContent>
 </MatCard>
 <style>
-    .gameSearch {
+    .inventorySearch {
         padding: 1%;
     }
 </style>

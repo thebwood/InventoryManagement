@@ -1,6 +1,7 @@
 ﻿using InventoryManagement.Models.Inventory;
 using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace InventoryManagement.Pages.Inventory
     public partial class InventoryDetail : CommonInventoryFunctions
     {
         #region Private Variables
+
+        private EditContext _editContext;
+
         private InventoryItemsModel _inventory = new InventoryItemsModel();
         private List<ItemTypesModel> _itemTypes = new List<ItemTypesModel>();
 
@@ -29,6 +33,7 @@ namespace InventoryManagement.Pages.Inventory
 
         protected override void OnInitialized()
         {
+            _editContext = new EditContext(_inventory);
             if (InventoryId > 0)
             {
                 _inventoryTask = this.Service.GetInventory(InventoryId);
@@ -63,14 +68,15 @@ namespace InventoryManagement.Pages.Inventory
 
         private async Task SaveInventory()
         {
-
-            var messages = await this.Service.SaveInventory(_inventory);
-            if (messages.Count() == 0)
+            if (_editContext.Validate())
             {
-                this.NavigationManager.NavigateTo("inventory");
+                var messages = await this.Service.SaveInventory(_inventory);
+                if (messages.Count() == 0)
+                {
+                    this.NavigationManager.NavigateTo("inventory");
+                }
             }
         }
-
         private void CancelSave()
         {
             this.NavigationManager.NavigateTo("inventory");

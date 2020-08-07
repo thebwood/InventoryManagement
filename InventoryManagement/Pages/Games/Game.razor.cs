@@ -1,6 +1,7 @@
 ﻿using InventoryManagement.Models.Games;
 using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,9 @@ namespace InventoryManagement.Pages.Games
     {
 
         #region Private Variables
+
+        private EditContext _editContext;
+
         private GamesModel _game = new GamesModel();
         private List<GameRatingsModel> _gameRatings = new List<GameRatingsModel>();
 
@@ -29,6 +33,7 @@ namespace InventoryManagement.Pages.Games
 
         protected override void OnInitialized()
         {
+            _editContext = new EditContext(_game);
             if (GameId > 0)
             {
                 _gameTask = this.Service.GetGame(GameId);
@@ -62,11 +67,13 @@ namespace InventoryManagement.Pages.Games
 
         private async Task SaveGame()
         {
-
-            var messages = await this.Service.SaveGame(_game);
-            if (messages.Count() == 0)
+            if (_editContext.Validate())
             {
-                this.NavigationManager.NavigateTo("games");
+                var messages = await this.Service.SaveGame(_game);
+                if (messages.Count() == 0)
+                {
+                    this.NavigationManager.NavigateTo("games");
+                }
             }
         }
 

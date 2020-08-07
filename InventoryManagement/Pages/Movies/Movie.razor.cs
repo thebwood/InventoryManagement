@@ -1,6 +1,7 @@
 ﻿using InventoryManagement.Models.Movies;
 using InventoryManagement.Shared.BaseClasses;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace InventoryManagement.Pages.Movies
     {
 
         #region Private Variables
+
+        private EditContext _editContext;
         private MoviesModel _movie = new MoviesModel();
         private List<MovieRatingsModel> _movieRatings = new List<MovieRatingsModel>();
 
@@ -29,7 +32,8 @@ namespace InventoryManagement.Pages.Movies
 
         protected override void OnInitialized()
         {
-            if(MovieId > 0)
+            _editContext = new EditContext(_movie);
+            if (MovieId > 0)
             {
                 _movieTask = this.Service.GetMovie(MovieId);
             }
@@ -62,11 +66,14 @@ namespace InventoryManagement.Pages.Movies
 
         private async Task SaveMovie()
         {
-
-            var messages = await this.Service.SaveMovie(_movie);
-            if(messages.Count() == 0)
+            if (_editContext.Validate())
             {
-                this.NavigationManager.NavigateTo("movies");
+
+                var messages = await this.Service.SaveMovie(_movie);
+                if (messages.Count() == 0)
+                {
+                    this.NavigationManager.NavigateTo("movies");
+                }
             }
         }
 

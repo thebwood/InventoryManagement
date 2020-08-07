@@ -49,6 +49,7 @@ namespace InventoryManagement.Components.Inventory
 
         private void SearchInventory()
         {
+            this.ConsoleInfo(_searchModel);
             if (OnSearchInventory.HasDelegate)
             {
                 OnSearchInventory.InvokeAsync(_searchModel);
