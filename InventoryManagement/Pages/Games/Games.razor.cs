@@ -1,5 +1,6 @@
 ﻿using InventoryManagement.Models.Games;
 using InventoryManagement.Shared.BaseClasses;
+using InventoryManagement.StateManagement;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace InventoryManagement.Pages.Games
     public partial class Games : CommonGameFunctions
     {
         #region Private Variables
-        private List<GameSearchResultsModel> _games;
+        private GameSearchState _gameSearchStateManagement;
         #endregion
 
 
@@ -17,9 +18,8 @@ namespace InventoryManagement.Pages.Games
 
         protected override async Task OnInitializedAsync()
         {
-            await HandleGameSearch(new GameSearchModel());
-            if (_games == null)
-                _games = new List<GameSearchResultsModel>();
+            _gameSearchStateManagement = new GameSearchState(this.Service);
+            await SearchGames(new GameSearchModel());
         }
         #endregion
 
@@ -31,9 +31,9 @@ namespace InventoryManagement.Pages.Games
 
         }
 
-        private async Task HandleGameSearch(GameSearchModel searchModel)
+        private async Task SearchGames(GameSearchModel searchModel)
         {
-            _games = await this.Service.SearchGames(searchModel);
+            await _gameSearchStateManagement.SearchGames(searchModel);
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using InventoryManagement.Models.Games;
 using InventoryManagement.Shared.BaseClasses;
+using InventoryManagement.StateManagement;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace InventoryManagement.Pages.Games
         #region Private Variables
 
         private EditContext _editContext;
+        private GameSearchState _gameSearchStateManagement;
 
         private GamesModel _game = new GamesModel();
         private List<GameRatingsModel> _gameRatings = new List<GameRatingsModel>();

@@ -2,27 +2,20 @@
 @page "/games"
 
 
-    <div class="gamesList">
-        <div class="row">
-            <div class="col-12 text-right">
-                <GameSearch OnSearchGames="HandleGameSearch"></GameSearch>
-            </div>
+<div class="gamesList">
+    <div class="row">
+        <div class="col-12 text-right">
+            <GameSearch GameSearchStateManagement="_gameSearchStateManagement"></GameSearch>
         </div>
-        <br />
-
-        <div class="row">
-            <div class="col-12 text-right">
-                <MatButton OnClick="@AddGame" Label="Add" Icon="add"></MatButton>
-
-            </div>
-
-        </div>
-        @if (_games != null && _games.Count() > 0)
-        {
-            <GamesGrid Models="_games"></GamesGrid>
-        }
-        else
-        {
-            <span>There are no records</span>
-        }
     </div>
+    <br />
+
+    <div class="row">
+        <div class="col-12 text-right">
+            <MatButton OnClick="@AddGame" Label="Add" Icon="add"></MatButton>
+
+        </div>
+
+    </div>
+    <GamesGrid GameSearchStateManagement="_gameSearchStateManagement"></GamesGrid>
+</div>
