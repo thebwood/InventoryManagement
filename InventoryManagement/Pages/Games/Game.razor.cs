@@ -3,6 +3,7 @@ using InventoryManagement.Shared.BaseClasses;
 using InventoryManagement.StateManagement;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,13 +16,10 @@ namespace InventoryManagement.Pages.Games
         #region Private Variables
 
         private EditContext _editContext;
-        private GameSearchState _gameSearchStateManagement;
+        private GameDetailState _gameDetailStateManagement;
 
         private GamesModel _game = new GamesModel();
         private List<GameRatingsModel> _gameRatings = new List<GameRatingsModel>();
-
-        private Task<GamesModel> _gameTask;
-        private Task<List<GameRatingsModel>> _gameRatingsTask;
 
         #endregion
 
@@ -33,35 +31,40 @@ namespace InventoryManagement.Pages.Games
 
         #region Blazor Events
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
+            _gameDetailStateManagement = new GameDetailState(Service);
+            _gameDetailStateManagement.HandleGameLoaded += GameLoaded;
+            _gameDetailStateManagement.HandleRatingsLoaded += RatingsLoaded;
+            _gameDetailStateManagement.OnGameSavedSuccessfully += OnSaved;
             _editContext = new EditContext(_game);
             if (GameId > 0)
             {
-                _gameTask = this.Service.GetGame(GameId);
+                await _gameDetailStateManagement.LoadGame(GameId);
             }
-            _gameRatingsTask = this.Service.GetGameRatings();
+            await _gameDetailStateManagement.LoadRatings();
         }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
+        protected void Dispose()
         {
-            if (firstRender)
-            {
-
-                if (GameId > 0)
-                {
-                    await Task.WhenAll(_gameTask, _gameRatingsTask);
-                    _game = _gameTask.Result;
-                }
-                else
-                {
-                    await Task.WhenAll(_gameRatingsTask);
-                }
-
-                _gameRatings = _gameRatingsTask.Result;
-                this.StateHasChanged();
-            }
+            _gameDetailStateManagement.HandleGameLoaded -= GameLoaded;
+            _gameDetailStateManagement.HandleRatingsLoaded -= RatingsLoaded;
+            _gameDetailStateManagement.OnGameSavedSuccessfully -= OnSaved;
         }
+
+        private void RatingsLoaded(List<GameRatingsModel> ratings)
+        {
+            _gameRatings = ratings;
+            StateHasChanged();
+        }
+
+        private void GameLoaded(GamesModel game)
+        {
+            _game = game;
+            _editContext = new EditContext(_game);
+            StateHasChanged();
+        }
+
 
         #endregion
 
@@ -71,12 +74,14 @@ namespace InventoryManagement.Pages.Games
         {
             if (_editContext.Validate())
             {
-                var messages = await this.Service.SaveGame(_game);
-                if (messages.Count() == 0)
-                {
-                    this.NavigationManager.NavigateTo("games");
-                }
+                await _gameDetailStateManagement.SaveGame(_game);
             }
+        }
+
+
+        private void OnSaved()
+        {
+            this.NavigationManager.NavigateTo("games");
         }
 
         private void CancelSave()
