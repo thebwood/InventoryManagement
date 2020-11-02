@@ -37,10 +37,14 @@ namespace InventoryManagement.Pages.Games
             _gameDetailStateManagement.HandleGameLoaded += GameLoaded;
             _gameDetailStateManagement.HandleRatingsLoaded += RatingsLoaded;
             _gameDetailStateManagement.OnGameSavedSuccessfully += OnSaved;
-            _editContext = new EditContext(_game);
             if (GameId > 0)
             {
                 await _gameDetailStateManagement.LoadGame(GameId);
+            }
+            else
+            {
+                _game = new GamesModel();
+                _editContext = new EditContext(_game);
             }
             await _gameDetailStateManagement.LoadRatings();
         }

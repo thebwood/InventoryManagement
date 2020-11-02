@@ -1,5 +1,6 @@
 ﻿using InventoryManagement.Models.Movies;
 using InventoryManagement.Shared.BaseClasses;
+using InventoryManagement.StateManagement;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Collections.Generic;
@@ -14,11 +15,10 @@ namespace InventoryManagement.Pages.Movies
         #region Private Variables
 
         private EditContext _editContext;
+        private MovieDetailState _movieDetailStateMangement;
+
         private MoviesModel _movie = new MoviesModel();
         private List<MovieRatingsModel> _movieRatings = new List<MovieRatingsModel>();
-
-        private Task<MoviesModel> _movieTask;
-        private Task<List<MovieRatingsModel>> _movieRatingsTask;
 
         #endregion
 
@@ -30,34 +30,22 @@ namespace InventoryManagement.Pages.Movies
 
         #region Blazor Events
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            _editContext = new EditContext(_movie);
+            _movieDetailStateMangement = new MovieDetailState(Service);
+            _movieDetailStateMangement.HandleMovieLoaded += MovieLoaded;
+            _movieDetailStateMangement.HandleRatingsLoaded += RatingsLoaded;
+            _movieDetailStateMangement.OnMovieSavedSuccessfully += OnSaved;
             if (MovieId > 0)
             {
-                _movieTask = this.Service.GetMovie(MovieId);
+                await _movieDetailStateMangement.LoadMovie(MovieId);
             }
-            _movieRatingsTask = this.Service.GetMovieRatings();
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if(firstRender)
+            else
             {
-
-                if (MovieId > 0)
-                {
-                    await Task.WhenAll(_movieTask, _movieRatingsTask);
-                    _movie = _movieTask.Result;
-                }
-                else
-                {
-                    await Task.WhenAll(_movieRatingsTask);
-                }
-
-                _movieRatings = _movieRatingsTask.Result;
-                this.StateHasChanged();
+                _movie = new MoviesModel();
+                _editContext = new EditContext(_movie);
             }
+            await _movieDetailStateMangement.LoadRatings();
         }
 
         #endregion
@@ -68,19 +56,41 @@ namespace InventoryManagement.Pages.Movies
         {
             if (_editContext.Validate())
             {
-
-                var messages = await this.Service.SaveMovie(_movie);
-                if (messages.Count() == 0)
-                {
-                    this.NavigationManager.NavigateTo("movies");
-                }
+                await _movieDetailStateMangement.SaveMovie(_movie);
             }
         }
+
+        private void OnSaved()
+        {
+            this.NavigationManager.NavigateTo("movies");
+        }
+
 
         private void CancelSave()
         {
             this.NavigationManager.NavigateTo("movies");
         }
+
+        protected void Dispose()
+        {
+            _movieDetailStateMangement.HandleMovieLoaded -= MovieLoaded;
+            _movieDetailStateMangement.HandleRatingsLoaded -= RatingsLoaded;
+            _movieDetailStateMangement.OnMovieSavedSuccessfully -= OnSaved;
+        }
+
+        private void RatingsLoaded(List<MovieRatingsModel> ratings)
+        {
+            _movieRatings = ratings;
+            StateHasChanged();
+        }
+
+        private void MovieLoaded(MoviesModel movie)
+        {
+            _movie = movie;
+            _editContext = new EditContext(_movie);
+            StateHasChanged();
+        }
+
         #endregion
     }
 }
