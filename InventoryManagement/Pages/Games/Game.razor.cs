@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Pages.Games
 {
-    public partial class Game : CommonGameFunctions
+    public partial class Game : CommonGameFunctions, IDisposable
     {
 
         #region Private Variables
@@ -44,31 +44,21 @@ namespace InventoryManagement.Pages.Games
             else
             {
                 _game = new GamesModel();
-                _editContext = new EditContext(_game);
             }
             await _gameDetailStateManagement.LoadRatings();
         }
 
-        protected void Dispose()
+        protected override void OnParametersSet()
+        {
+            _editContext = new EditContext(_game);
+        }
+
+        public void Dispose()
         {
             _gameDetailStateManagement.HandleGameLoaded -= GameLoaded;
             _gameDetailStateManagement.HandleRatingsLoaded -= RatingsLoaded;
             _gameDetailStateManagement.OnGameSavedSuccessfully -= OnSaved;
         }
-
-        private void RatingsLoaded(List<GameRatingsModel> ratings)
-        {
-            _gameRatings = ratings;
-            StateHasChanged();
-        }
-
-        private void GameLoaded(GamesModel game)
-        {
-            _game = game;
-            _editContext = new EditContext(_game);
-            StateHasChanged();
-        }
-
 
         #endregion
 
@@ -92,6 +82,32 @@ namespace InventoryManagement.Pages.Games
         {
             this.NavigationManager.NavigateTo("games");
         }
+
+        private void RatingsLoaded(List<GameRatingsModel> ratings)
+        {
+            _gameRatings = new List<GameRatingsModel>();
+            _gameRatings.Add(new GameRatingsModel()
+            {
+                Id = null,
+                Rating = "Please select a rating",
+                Age = 0
+            });
+
+            foreach (var rating in ratings)
+            {
+                _gameRatings.Add(rating);
+            }
+
+            StateHasChanged();
+        }
+
+        private void GameLoaded(GamesModel game)
+        {
+            _game = game;
+            _editContext = new EditContext(_game);
+            StateHasChanged();
+        }
+
         #endregion
     }
 }
